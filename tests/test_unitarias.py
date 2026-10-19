@@ -23,6 +23,10 @@ class TestUnitarias(unittest.TestCase):
         with self.assertRaises(ErrorValidacion):
             self.g.listar("otro")
 
+    def test_asignatura_vacia_usa_valor_por_defecto(self):
+        tarea, _ = self.g.registrar("Taller 2", "  ", "2026-11-02")
+        self.assertEqual(tarea.asignatura, "Sin asignatura")
+
 
 if __name__ == "__main__":
     unittest.main()
